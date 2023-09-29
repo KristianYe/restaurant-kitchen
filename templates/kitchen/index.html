@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to the best Restaurant Manage Service ever!</h1>
+    <h2>Dynamic content</h2>
+    <p>Our restaurant has following record counts:</p>
+    <ul>
+        <li><strong>Cooks:</strong> {{ num_cooks }}</li>
+        <li><strong>DishTypes:</strong> {{ num_dish_types }}</li>
+        <li><strong>Dishes:</strong> {{ num_dishes }}</li>
+    </ul>
+
+    <p>You have visited this page
+        {{ num_visits }} time{{ num_visits|pluralize }}.
+    </p>
+
+{% endblock %}
