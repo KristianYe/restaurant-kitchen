@@ -84,6 +84,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = "kitchen.Cook"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -131,3 +132,4 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
