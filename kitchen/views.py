@@ -29,6 +29,10 @@ class DishListView(generic.ListView):
     model = Dish
 
 
+class DishDetailView(generic.DetailView):
+    model = Dish
+
+
 class DishTypeListView(generic.ListView):
     model = DishType
     template_name = "kitchen/dish_type_list.html"
