@@ -1,9 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
-from kitchen.models import Cook, Dish, DishType
+from kitchen.forms import DishForm
+from kitchen.models import Cook, Dish, DishType, Ingredient
 
 
 @login_required
@@ -31,6 +33,12 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
 
 
+class DishCreateView(LoginRequiredMixin, generic.CreateView):
+    form_class = DishForm
+    success_url = reverse_lazy("kitchen:dish-type-list")
+    template_name = "kitchen/dish_form.html"
+
+
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
 
@@ -39,6 +47,14 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     model = DishType
     template_name = "kitchen/dish_type_list.html"
     context_object_name = "dish_type_list"
+
+
+class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
+    model = DishType
+    fields = "__all__"
+    template_name = "kitchen/dish_type_form.html"
+    context_object_name = "dish_type_form"
+    success_url = reverse_lazy("kitchen:dish-type-list")
 
 
 class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
@@ -53,3 +69,10 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
+
+
+class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Ingredient
+    fields = "__all__"
+    success_url = reverse_lazy("kitchen:dish-type-list")
+    template_name = "kitchen/ingredient_form.html"
