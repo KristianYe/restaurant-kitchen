@@ -22,7 +22,7 @@ class Cook(AbstractUser):
 
 
 class Ingredient(models.Model):
-    name = models.CharField(max_length=63)
+    name = models.CharField(max_length=63, unique=True)
 
     def __str__(self) -> str:
         return f"{self.name}"
