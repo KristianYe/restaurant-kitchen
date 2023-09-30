@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Cook List</h1>
+  <ul>
+    {% for cook in cook_list %}
+      <li>{{ cook }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
