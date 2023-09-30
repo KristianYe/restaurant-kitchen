@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {{ dish_type }}
+  </h1>
+  <br>
+  <h4>All dishes in this category:</h4>
+  <ul>
+    {% for dish in dish_type.dishes.all %}
+      <hr>
+      <li><a href="{% url 'kitchen:dish-detail' pk=dish.id %}">{{ dish.name }}</a>: {{ dish.price }}$</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
