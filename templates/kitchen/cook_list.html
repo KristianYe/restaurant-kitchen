@@ -4,7 +4,8 @@
 	<h1>Cook List</h1>
   <ul>
     {% for cook in cook_list %}
-      <li>{{ cook }}</li>
+      <li><a href="{% url 'kitchen:cook-detail' pk=cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a>
+        ({{ cook.username }})</li>
     {% endfor %}
   </ul>
 {% endblock %}

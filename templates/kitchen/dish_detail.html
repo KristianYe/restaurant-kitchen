@@ -10,7 +10,8 @@
   <hr>
   <ul>
     {% for cook in dish.cooks.all %}
-      <li>{{ cook }}</li>
+      <li><a href="{% url 'kitchen:cook-detail' pk=cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a>
+        ({{ cook.username }})</li>
     {% endfor %}
   </ul>
 {% endblock %}
