@@ -7,6 +7,14 @@
   <p><strong>Dish Type:</strong> {{ dish.dish_type }}</p>
   <p><strong>Price:</strong> {{ dish.price }}</p>
   <p><strong>Description:</strong> {{ dish.description }}</p>
+  <p>
+    <strong>Ingredients: </strong>
+    {% for ingredient in dish.ingredients.all %}
+      {{ ingredient }},
+    {% endfor %}
+  </p>
+  <hr>
+  <h4>Cooks</h4>
   <hr>
   <ul>
     {% for cook in dish.cooks.all %}
