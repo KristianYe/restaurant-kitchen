@@ -1,10 +1,12 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
 
 from kitchen.models import Cook, Dish, DishType
 
 
+@login_required
 def index(request):
     """View function for the home page of the site."""
 
@@ -25,29 +27,29 @@ def index(request):
     return render(request, "kitchen/index.html", context=context)
 
 
-class DishListView(generic.ListView):
+class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
 
 
-class DishDetailView(generic.DetailView):
+class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
 
 
-class DishTypeListView(generic.ListView):
+class DishTypeListView(LoginRequiredMixin, generic.ListView):
     model = DishType
     template_name = "kitchen/dish_type_list.html"
     context_object_name = "dish_type_list"
 
 
-class DishTypeDetailView(generic.DetailView):
+class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
     model = DishType
     template_name = "kitchen/dish_type_detail.html"
     context_object_name = "dish_type"
 
 
-class CookListView(generic.ListView):
+class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
 
 
-class CookDetailView(generic.DetailView):
+class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "debug_toolbar",
+    "crispy_forms",
+    "crispy_bootstrap5",
     "kitchen",
 ]
 
@@ -57,8 +59,7 @@ ROOT_URLCONF = "restaurant.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates']
-        ,
+        "DIRS": [BASE_DIR / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -85,6 +86,8 @@ DATABASES = {
 }
 
 AUTH_USER_MODEL = "kitchen.Cook"
+
+LOGIN_REDIRECT_URL = "/"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -137,3 +140,6 @@ INTERNAL_IPS = [
     # ...
 ]
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
