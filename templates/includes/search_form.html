@@ -1,0 +1,11 @@
+{% load crispy_forms_filters %}
+<form method="get" action="">
+  <div class="row">
+    <div class="col-2">
+      {{ search_form|crispy }}
+    </div>
+    <div class="col-1">
+      <input class="btn btn-primary" type="submit" value="🔍">
+    </div>
+  </div>
+</form>

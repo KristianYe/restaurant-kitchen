@@ -2,6 +2,9 @@
 
 {% block content %}
 	<h1>Cook List</h1>
+  <br>
+  {% include 'includes/search_form.html' %}
+  <hr>
   <ul>
     {% for cook in cook_list %}
       <li><a href="{% url 'kitchen:cook-detail' pk=cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a>
