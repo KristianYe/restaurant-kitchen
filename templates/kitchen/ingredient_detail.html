@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {{ ingredient }}
+    <a class="btn btn-primary" href="{% url 'kitchen:ingredient-update' pk=ingredient.id %}">Update ingredient</a>
+    <a class="btn btn-danger" href="{% url 'kitchen:ingredient-delete' pk=ingredient.id %}">Delete ingredient</a>
+  </h1>
+  <br>
+  <h4>All dishes with this ingredient:</h4>
+  <ul>
+    {% for dish in ingredient.dishes.all %}
+      <hr>
+      <li><a href="{% url 'kitchen:dish-detail' pk=dish.id %}">{{ dish.name }}</a>: {{ dish.price }}$</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
