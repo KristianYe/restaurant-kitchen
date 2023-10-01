@@ -3,6 +3,8 @@
 {% block content %}
   <h1>
     {{ dish_type }}
+    <a class="btn btn-primary" href="{% url 'kitchen:dish-type-update' pk=dish_type.id %}">Update dish type</a>
+    <a class="btn btn-danger" href="{% url 'kitchen:dish-type-delete' pk=dish_type.id %}">Delete dish type</a>
   </h1>
   <br>
   <h4>All dishes in this category:</h4>
