@@ -40,7 +40,7 @@
     background-color: var(--ky-light-purple);
 }
 
-.nav-border {
+.border-purple {
     border: 1px solid var(--ky-btn-color-purple);
 }
 
