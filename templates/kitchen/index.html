@@ -1,17 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Welcome to the best Restaurant Manage Service ever!</h1>
-    <h2>Dynamic content</h2>
-    <p>Our restaurant has following record counts:</p>
-    <ul>
-        <li><strong>Cooks:</strong> {{ num_cooks }}</li>
-        <li><strong>DishTypes:</strong> {{ num_dish_types }}</li>
-        <li><strong>Dishes:</strong> {{ num_dishes }}</li>
-    </ul>
-
-    <p>You have visited this page
-        {{ num_visits }} time{{ num_visits|pluralize }}.
-    </p>
+  <div class="container d-flex flex-column text-center">
+    <div class="mt-3 text-center">
+      <h1>Welcome to the best Kitchen Service ever!</h1>
+    </div>
+    <div class="container d-flex justify-content-sm-evenly custom-cont">
+      <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <div class="text-center">
+          <p>Our team includes</p>
+          <p style="font-size: 28px">{{ num_cooks }}</p>
+          <p>cooks.</p>
+          <a class="btn btn-purple mt-2" href="{% url 'kitchen:cook-list' %}">More</a>
+        </div>
+      </div>
+      <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <div class="text-center">
+          <p>Our menu consist of</p>
+          <p style="font-size: 28px">{{ num_dish_types }}</p>
+          <p>diverse dish categories.</p>
+          <a class="btn btn-purple mt-2" href="{% url 'kitchen:dish-type-list' %}">More</a>
+        </div>
+      </div>
+      <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <div class="text-center">
+          <p>We serve</p>
+          <p style="font-size: 28px">{{ num_dishes }}</p>
+          <p>different dishes.</p>
+          <a class="btn btn-purple mt-2" href="{% url 'kitchen:dish-list' %}">More</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
