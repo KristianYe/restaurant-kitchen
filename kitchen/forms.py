@@ -7,12 +7,12 @@ from kitchen.models import Ingredient, DishType, Dish
 class DishForm(forms.ModelForm):
     ingredients = forms.ModelMultipleChoiceField(
         queryset=Ingredient.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
+        label="Ingredients (hold 'ctrl' to select multiple ingredients)"
     )
     cooks = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=False
+        required=False,
+        label="Cooks (hold 'ctrl' to select multiple cooks)"
     )
     dish_type = forms.ModelChoiceField(
         queryset=DishType.objects.all(), widget=forms.Select
