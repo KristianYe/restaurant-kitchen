@@ -7,7 +7,13 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from kitchen.forms import DishForm, DishSearchForm, DishTypeSearchForm, CookSearchForm, IngredientSearchForm
+from kitchen.forms import (
+    DishForm,
+    DishSearchForm,
+    DishTypeSearchForm,
+    CookSearchForm,
+    IngredientSearchForm,
+)
 from kitchen.models import Cook, Dish, DishType, Ingredient
 
 
@@ -135,8 +141,8 @@ class CookListView(LoginRequiredMixin, generic.ListView):
         form = CookSearchForm(self.request.GET)
         if form.is_valid():
             return queryset.filter(
-                Q(first_name__icontains=form.cleaned_data["name"]) |
-                Q(last_name__icontains=form.cleaned_data["name"])
+                Q(first_name__icontains=form.cleaned_data["name"])
+                | Q(last_name__icontains=form.cleaned_data["name"])
             )
         return queryset
 
@@ -186,9 +192,7 @@ class IngredientDeleteView(LoginRequiredMixin, generic.DeleteView):
 @login_required
 def toggle_assign_to_dish(request, pk):
     cook = Cook.objects.get(id=request.user.id)
-    if (
-        Dish.objects.get(id=pk) in cook.dishes.all()
-    ):
+    if Dish.objects.get(id=pk) in cook.dishes.all():
         cook.dishes.remove(pk)
     else:
         cook.dishes.add(pk)

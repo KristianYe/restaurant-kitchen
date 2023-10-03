@@ -14,8 +14,7 @@ class DishForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple,
     )
     dish_type = forms.ModelChoiceField(
-        queryset=DishType.objects.all(),
-        widget=forms.Select
+        queryset=DishType.objects.all(), widget=forms.Select
     )
 
     class Meta:
