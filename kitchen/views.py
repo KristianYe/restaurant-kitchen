@@ -118,6 +118,12 @@ class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = "kitchen/dish_type_detail.html"
     context_object_name = "dish_type"
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        created_dishes = bool(list(self.get_object().dishes.all()))
+        context["created_dishes"] = created_dishes
+        return context
+
 
 class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = DishType
@@ -149,6 +155,12 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        created_dishes = bool(list(self.get_object().created_dishes.all()))
+        context["created_dishes"] = created_dishes
+        return context
 
 
 class IngredientCreateView(LoginRequiredMixin, generic.CreateView):

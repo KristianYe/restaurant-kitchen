@@ -6,14 +6,17 @@
       <h1>
         {{ dish_type }}
       </h1>
-      <div class="mt-3">
-        <a class="btn btn-purple" href="{% url 'kitchen:dish-type-update' pk=dish_type.id %}">Update dish type</a>
-        <a class="btn btn-danger" href="{% url 'kitchen:dish-type-delete' pk=dish_type.id %}">Delete dish type</a>
-      </div>
+      {% if dish_type.created_by == user %}
+      	<div class="mt-3">
+          <a class="btn btn-purple" href="{% url 'kitchen:dish-type-update' pk=dish_type.id %}">Update dish type</a>
+          <a class="btn btn-danger" href="{% url 'kitchen:dish-type-delete' pk=dish_type.id %}">Delete dish type</a>
+        </div>
+      {% endif %}
     </div>
     <hr>
     <div class="ms-3">
       <h4>All dishes in this category:</h4>
+      {% if created_dishes %}
       <div class="col-6">
         <table class="table table-light bg-purple mt-4">
           <thead>
@@ -36,6 +39,9 @@
           </tbody>
         </table>
       </div>
+      {% else %}
+        <p class="ms-1">There are no dishes added to this category yet.</p>
+      {% endif %}
     </div>
   </div>
 {% endblock %}

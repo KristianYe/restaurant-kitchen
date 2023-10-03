@@ -6,10 +6,12 @@
       <h1>
         {{ dish.name }}
       </h1>
-      <div class="mt-3">
-        <a class="btn btn-purple" href="{% url 'kitchen:dish-update' pk=dish.id %}">Update dish</a>
-        <a class="btn btn-danger" href="{% url 'kitchen:dish-delete' pk=dish.id %}">Delete dish</a>
-      </div>
+      {% if dish.created_by == user %}
+        <div class="mt-3">
+          <a class="btn btn-purple" href="{% url 'kitchen:dish-update' pk=dish.id %}">Update dish</a>
+          <a class="btn btn-danger" href="{% url 'kitchen:dish-delete' pk=dish.id %}">Delete dish</a>
+        </div>
+      {% endif %}
     </div>
     <hr>
     <div class="container-fluid d-flex ">
@@ -27,6 +29,12 @@
       <div class="container d-flex flex-column gap-3">
         <p><strong>Dish Type:</strong> {{ dish.dish_type }}</p>
         <p><strong>Price:</strong> {{ dish.price }}</p>
+        <p>
+          <strong>Created by:</strong>
+          <a style="text-decoration: None; color: blueviolet" href="{% url 'kitchen:cook-detail' pk=dish.created_by.id %}">
+            {{ dish.created_by.first_name }} {{ dish.created_by.last_name }}
+          </a>
+        </p>
         <p><strong>Description:</strong> {{ dish.description }}</p>
         <p>
           <strong>Ingredients: </strong>
