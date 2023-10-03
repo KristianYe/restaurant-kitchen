@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="mt-5">
-    <div>
+  <div class="mt-5">
+    <div class="text-center">
       <h1>
         Dish List
         <a style="margin-left: 1%" href="{% url 'kitchen:dish-type-create' %}" class="btn btn-purple link-to-page">
@@ -10,17 +10,22 @@
         </a>
       </h1>
     </div>
-    <br>
-    {% include "includes/search_form.html" %}
+    <div class="container d-flex justify-content-center">
+      <br>
+      {% include "includes/search_form.html" %}
+    </div>
     <hr>
-    <div class="container d-flex justify-content-sm-evenly custom-cont">
+    <div class="container d-flex justify-content-sm-evenly flex-wrap custom-cont gap-5">
       {% for dish in dish_list %}
-      <div class="row border rounded-5 p-3 bg-white shadow box-area">
+      <div class="row border rounded-5 p-3 bg-white shadow box-area custom-box">
         <div class="text-center">
-          <p>{{ dish }}</p>
-          <a class="btn btn-purple mt-2" href="{% url 'kitchen:dish-detail' pk=dish.id %}">
-            Detail
-          </a>
+          <p>{{ dish.name }}</p>
+          <p>Price: {{ dish.price }}</p>
+        </div>
+        <div style="height: 60%" class="d-flex align-items-end justify-content-center">
+        <a class="btn btn-lg btn-purple mt-2" href="{% url 'kitchen:dish-detail' pk=dish.id %}">
+          Details
+        </a>
         </div>
       </div>
       {% endfor %}
