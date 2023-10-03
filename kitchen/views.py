@@ -100,7 +100,7 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
 
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = DishType
-    fields = "__all__"
+    fields = ["name"]
     template_name = "kitchen/dish_type_form.html"
     context_object_name = "dish_type_form"
     success_url = reverse_lazy("kitchen:dish-type-list")

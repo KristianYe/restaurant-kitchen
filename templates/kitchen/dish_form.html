@@ -40,7 +40,7 @@
               {{ form.image|as_crispy_field}}
             </div>
           </div>
-          <input type="submit" value="Update" class="btn btn-purple" />
+          <input type="submit" value="{{ object|yesno:"Update,Create" }}" class="btn btn-purple" />
         </form>
       </div>
     </div>
