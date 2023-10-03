@@ -108,7 +108,7 @@ class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
 
 class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = DishType
-    fields = "__all__"
+    fields = ["name"]
     template_name = "kitchen/dish_type_form.html"
     context_object_name = "dish_type_form"
 
@@ -193,7 +193,7 @@ class IngredientDetailView(LoginRequiredMixin, generic.DetailView):
 
 class IngredientUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Ingredient
-    fields = "__all__"
+    fields = ["name"]
 
 
 class IngredientDeleteView(LoginRequiredMixin, generic.DeleteView):

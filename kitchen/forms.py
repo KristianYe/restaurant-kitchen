@@ -17,15 +17,14 @@ class DishForm(forms.ModelForm):
     dish_type = forms.ModelChoiceField(
         queryset=DishType.objects.all(), widget=forms.Select
     )
-    image_field = forms.ModelChoiceField(
-        queryset=DishType.objects.all(),
-        widget=forms.Select,
+    image = forms.ImageField(
         required=False
     )
 
     class Meta:
         model = Dish
         fields = "__all__"
+        exclude = ["created_by"]
 
 
 class DishTypeSearchForm(forms.Form):
