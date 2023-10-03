@@ -92,3 +92,7 @@ p {
     width: 250px;
     height: 200px;
 }
+
+.border-purple-5 {
+    border: 5px solid var(--ky-btn-color-purple);
+}
