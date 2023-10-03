@@ -163,6 +163,11 @@ class CookDetailView(LoginRequiredMixin, generic.DetailView):
         return context
 
 
+class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Cook
+    fields = ["user_image"]
+
+
 class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
     model = Ingredient
     fields = "__all__"

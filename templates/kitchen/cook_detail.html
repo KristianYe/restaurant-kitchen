@@ -6,7 +6,7 @@
       <h1>
         {{ cook.username }}
         {% if cook == user %}
-          <a class="btn btn-purple" href="#">Update user image</a>
+          <a class="btn btn-purple" href="{% url 'kitchen:cook-update' pk=cook.id %}">Update user image</a>
         {% endif %}
       </h1>
     </div>
