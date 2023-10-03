@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.urls import reverse
 
@@ -22,7 +23,15 @@ class DishType(models.Model):
 
 class Cook(AbstractUser):
     years_of_experience = models.IntegerField()
-    user_image = models.ImageField(upload_to="cooks", null=True)
+    user_image = models.ImageField(
+        upload_to="cooks",
+        null=True,
+        validators=[
+            FileExtensionValidator(
+                allowed_extensions=['jpg', 'jpeg', 'png', 'gif']
+            )
+        ]
+    )
 
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name} ({self.username})"
@@ -64,7 +73,15 @@ class Dish(models.Model):
         on_delete=models.SET_NULL,
         null=True
     )
-    image = models.ImageField(upload_to="dishes", null=True)
+    image = models.ImageField(
+        upload_to="dishes",
+        null=True,
+        validators=[
+            FileExtensionValidator(
+                allowed_extensions=['jpg', 'jpeg', 'png', 'gif']
+            )
+        ]
+    )
 
     class Meta:
         ordering = ["name"]
