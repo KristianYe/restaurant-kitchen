@@ -251,13 +251,3 @@ class IngredientUpdateView(LoginRequiredMixin, generic.UpdateView):
 class IngredientDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Ingredient
     success_url = reverse_lazy("kitchen:ingredient-list")
-
-
-@login_required
-def toggle_assign_to_dish(request, pk):
-    cook = Cook.objects.get(id=request.user.id)
-    if Dish.objects.get(id=pk) in cook.dishes.all():
-        cook.dishes.remove(pk)
-    else:
-        cook.dishes.add(pk)
-    return HttpResponseRedirect(reverse_lazy("kitchen:dish-detail", args=[pk]))
