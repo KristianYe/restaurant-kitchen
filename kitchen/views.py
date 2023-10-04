@@ -102,7 +102,7 @@ class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = DishType
     fields = ["name"]
     template_name = "kitchen/dish_type_form.html"
-    context_object_name = "dish_type_form"
+    context_object_name = "dish_type"
     success_url = reverse_lazy("kitchen:dish-type-list")
 
 
@@ -110,7 +110,7 @@ class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = DishType
     fields = ["name"]
     template_name = "kitchen/dish_type_form.html"
-    context_object_name = "dish_type_form"
+    context_object_name = "dish_type"
 
 
 class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
@@ -170,7 +170,7 @@ class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
     model = Ingredient
-    fields = "__all__"
+    fields = ["name"]
     success_url = reverse_lazy("kitchen:ingredient-list")
 
 
@@ -194,6 +194,12 @@ class IngredientListView(LoginRequiredMixin, generic.ListView):
 
 class IngredientDetailView(LoginRequiredMixin, generic.DetailView):
     model = Ingredient
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        dishes_with_obj = bool(list(self.get_object().dishes.all()))
+        context["dishes_with_obj"] = dishes_with_obj
+        return context
 
 
 class IngredientUpdateView(LoginRequiredMixin, generic.UpdateView):

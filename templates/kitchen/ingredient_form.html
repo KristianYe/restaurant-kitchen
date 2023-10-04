@@ -2,11 +2,23 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>Create new ingredient</h1>
-  <form action="" method="post" novalidate>
-    {% csrf_token %}
-    {{ form|crispy }}
+  <div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="col-md-4">
+      <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <h1 class="text-center">{{ object|yesno:"Update,Create new" }} ingredient</h1>
 
-    <input type="submit" value="Submit" class="btn btn-primary">
-  </form>
+        <form method="post" action="">
+          {% csrf_token %}
+          {{ form|crispy }}
+
+          <input type="submit" value="{{ object|yesno:"Update,Create" }}" class="btn btn-purple" />
+          {% if object %}
+          	<a class="btn btn-danger" href="{% url 'kitchen:ingredient-detail' pk=ingredient.id %}">Cancel</a>
+          {% else %}
+            <a class="btn btn-danger" href="{% url 'kitchen:ingredient-list' %}">Cancel</a>
+          {% endif %}
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}

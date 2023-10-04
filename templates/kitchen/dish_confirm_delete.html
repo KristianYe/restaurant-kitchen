@@ -1,12 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete {{ dish.name }}?</h1>
-  <form action="" method="post">
-    {% csrf_token %}
+  <div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="col-md-4">
+      <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <h1>Delete {{ dish.name }}?</h1>
+        <form action="" method="post">
+          {% csrf_token %}
 
-    <br>
-    <input type="submit" value="Delete" class="btn btn-danger">
-    <a class="btn btn-secondary" href="{% url 'kitchen:dish-detail' pk=dish.id %}">Cancel</a>
-  </form>
+          <br>
+          <input type="submit" value="Delete" class="btn btn-danger">
+          <a class="btn btn-secondary" href="{% url 'kitchen:dish-detail' pk=dish.id %}">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}

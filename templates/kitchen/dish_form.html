@@ -9,7 +9,7 @@
           <h1>{{ object|yesno:"Update,Create new" }} dish</h1>
         </div>
         <br>
-        <form method="post" action="{% url 'login' %}">
+        <form method="post" action="">
           {% csrf_token %}
           <div class="d-flex flex-row justify-content-start">
             <div class="col-5">
@@ -41,6 +41,11 @@
             </div>
           </div>
           <input type="submit" value="{{ object|yesno:"Update,Create" }}" class="btn btn-purple" />
+          {% if object %}
+          	<a class="btn btn-danger" href="{% url 'kitchen:dish-detail' pk=dish.id %}">Cancel</a>
+          {% else %}
+            <a class="btn btn-danger" href="{% url 'kitchen:dish-list' %}">Cancel</a>
+          {% endif %}
         </form>
       </div>
     </div>
