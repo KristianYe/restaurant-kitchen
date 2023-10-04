@@ -61,6 +61,10 @@ class DishCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("kitchen:dish-list")
     template_name = "kitchen/dish_form.html"
 
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
 
 class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Dish
@@ -104,6 +108,10 @@ class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = "kitchen/dish_type_form.html"
     context_object_name = "dish_type"
     success_url = reverse_lazy("kitchen:dish-type-list")
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
 
 
 class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
@@ -172,6 +180,10 @@ class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
     model = Ingredient
     fields = ["name"]
     success_url = reverse_lazy("kitchen:ingredient-list")
+
+    def form_valid(self, form):
+        form.instance.added_by = self.request.user
+        return super().form_valid(form)
 
 
 class IngredientListView(LoginRequiredMixin, generic.ListView):

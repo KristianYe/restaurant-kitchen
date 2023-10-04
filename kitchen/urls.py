@@ -63,27 +63,27 @@ urlpatterns = [
     path("cooks/<int:pk>/", CookDetailView.as_view(), name="cook-detail"),
     path("cooks/<int:pk>/update/", CookUpdateView.as_view(), name="cook-update"),
     path(
-        "ingredient/create/",
+        "ingredients/create/",
         IngredientCreateView.as_view(),
         name="ingredient-create",
     ),
     path(
-        "ingredient/list/",
+        "ingredients/",
         IngredientListView.as_view(),
         name="ingredient-list",
     ),
     path(
-        "ingredient/<int:pk>/",
+        "ingredients/<int:pk>/",
         IngredientDetailView.as_view(),
         name="ingredient-detail",
     ),
     path(
-        "ingredient/<int:pk>/update/",
+        "ingredients/<int:pk>/update/",
         IngredientUpdateView.as_view(),
         name="ingredient-update",
     ),
     path(
-        "ingredient/<int:pk>/delete/",
+        "ingredients/<int:pk>/delete/",
         IngredientDeleteView.as_view(),
         name="ingredient-delete",
     ),
