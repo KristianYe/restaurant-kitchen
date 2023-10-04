@@ -170,6 +170,7 @@ class CookListView(LoginRequiredMixin, generic.ListView):
             return queryset.filter(
                 Q(first_name__icontains=form.cleaned_data["name"])
                 | Q(last_name__icontains=form.cleaned_data["name"])
+                | Q(username__icontains=form.cleaned_data["name"])
             )
         return queryset
 
