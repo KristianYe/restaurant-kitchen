@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q, Count
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -25,14 +25,10 @@ def index(request):
     num_dishes = Dish.objects.count()
     num_dish_types = DishType.objects.count()
 
-    num_visits = request.session.get("num_visits", 0)
-    request.session["num_visits"] = num_visits + 1
-
     context = {
         "num_cooks": num_cooks,
         "num_dish_types": num_dish_types,
         "num_dishes": num_dishes,
-        "num_visits": num_visits + 1,
     }
 
     return render(request, "kitchen/index.html", context=context)
@@ -70,6 +66,14 @@ class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Dish
     form_class = DishForm
     template_name = "kitchen/dish_form.html"
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+
+        if obj.created_by != self.request.user:
+            raise Http404("You don't have access to this page")
+
+        return obj
 
 
 class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -120,6 +124,14 @@ class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "kitchen/dish_type_form.html"
     context_object_name = "dish_type"
 
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+
+        if obj.created_by != self.request.user:
+            raise Http404("You don't have access to this page")
+
+        return obj
+
 
 class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
     model = DishType
@@ -143,6 +155,7 @@ class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
 class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
     paginate_by = 3
+
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -174,6 +187,14 @@ class CookDetailView(LoginRequiredMixin, generic.DetailView):
 class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Cook
     fields = ["user_image"]
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+
+        if obj != self.request.user:
+            raise Http404("You don't have access to this page")
+
+        return obj
 
 
 class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
@@ -217,6 +238,14 @@ class IngredientDetailView(LoginRequiredMixin, generic.DetailView):
 class IngredientUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Ingredient
     fields = ["name"]
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+
+        if obj.added_by != self.request.user:
+            raise Http404("You don't have access to this page")
+
+        return obj
 
 
 class IngredientDeleteView(LoginRequiredMixin, generic.DeleteView):
