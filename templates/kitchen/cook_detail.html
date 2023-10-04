@@ -30,8 +30,11 @@
         <hr>
         <div class="container d-flex flex-row">
           <div class="col-3">
-
-          <p><strong>Dishes that {{ cook.first_name }} cooks:</strong></p>
+          {% if cook.first_name %}
+            <p><strong>Dishes that {{ cook.first_name }} cooks:</strong></p>
+          {% else %}
+            <p><strong>Dishes that {{ cook.username }} cooks:</strong></p>
+          {% endif %}
             <ul class="list-group">
               {% for dish in cook.dishes.all %}
                 <li class="list-group-item">
@@ -44,7 +47,11 @@
             </ul>
           </div>
           <div class="ms-5 col-3 pe-5">
+          {% if cook.first_name %}
             <p><strong>Dishes added by {{ cook.first_name }}:</strong></p>
+          {% else %}
+            <p><strong>Dishes added by {{ cook.username }}:</strong></p>
+          {% endif %}
               {% if created_dishes %}
                 <ul class="list-group">
                   {% for dish in cook.created_dishes.all %}
