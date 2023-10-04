@@ -27,7 +27,7 @@ class DishForm(forms.ModelForm):
         exclude = ["created_by"]
 
 
-class DishTypeSearchForm(forms.Form):
+class SearchByNameMixin(forms.Form):
     name = forms.CharField(
         max_length=255,
         required=False,
@@ -36,28 +36,17 @@ class DishTypeSearchForm(forms.Form):
     )
 
 
-class CookSearchForm(forms.Form):
-    name = forms.CharField(
-        max_length=255,
-        required=False,
-        label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by name"}),
-    )
+class DishTypeSearchForm(SearchByNameMixin, forms.Form):
+    pass
 
 
-class DishSearchForm(forms.Form):
-    name = forms.CharField(
-        max_length=255,
-        required=False,
-        label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by name"}),
-    )
+class CookSearchForm(SearchByNameMixin, forms.Form):
+    pass
 
 
-class IngredientSearchForm(forms.Form):
-    name = forms.CharField(
-        max_length=255,
-        required=False,
-        label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by name"}),
-    )
+class DishSearchForm(SearchByNameMixin, forms.Form):
+    pass
+
+
+class IngredientSearchForm(SearchByNameMixin, forms.Form):
+    pass
