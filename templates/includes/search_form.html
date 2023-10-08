@@ -1,0 +1,9 @@
+{% load crispy_forms_filters %}
+<form method="get" action="">
+  <div class="container d-flex mt-3">
+    {{ search_form|crispy }}
+    <div class="ms-2">
+      <input class="btn btn-purple" type="submit" value="Search">
+    </div>
+  </div>
+</form>

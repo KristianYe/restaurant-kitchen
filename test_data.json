@@ -1,0 +1,911 @@
+[
+{
+  "model": "kitchen.dishtype",
+  "pk": 1,
+  "fields": {
+    "name": "Appetizer",
+    "created_by": 2
+  }
+},
+{
+  "model": "kitchen.dishtype",
+  "pk": 2,
+  "fields": {
+    "name": "Main Course",
+    "created_by": 1
+  }
+},
+{
+  "model": "kitchen.dishtype",
+  "pk": 3,
+  "fields": {
+    "name": "Dessert",
+    "created_by": 1
+  }
+},
+{
+  "model": "kitchen.dishtype",
+  "pk": 4,
+  "fields": {
+    "name": "Salad",
+    "created_by": 1
+  }
+},
+{
+  "model": "kitchen.dishtype",
+  "pk": 9,
+  "fields": {
+    "name": "test",
+    "created_by": 1
+  }
+},
+{
+  "model": "kitchen.cook",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$WyUNUq4ohDmi4kx0gR36qr$boVYOwdHAt998qZ8mdNFogKGevQqSfm0idHkuQai/pU=",
+    "last_login": "2023-10-08T11:32:48.975Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "Ryan",
+    "last_name": "Gosling",
+    "email": "admin@admin.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-09-29T14:26:08Z",
+    "years_of_experience": 10,
+    "user_image": "cooks/MV5BMTQzMjkwNTQ2OF5BMl5BanBnXkFtZTgwNTQ4MTQ4MTE._V1_.jpg",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "kitchen.cook",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$GyElI4c2e4sS$mvzR89thKwto4n4itvYToByjGSX0tV47UvpxiKvq4iA=",
+    "last_login": "2023-09-29T14:14:03Z",
+    "is_superuser": false,
+    "username": "chef2",
+    "first_name": "Sarah",
+    "last_name": "Smith",
+    "email": "sarah.smith@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-09-29T13:58:29Z",
+    "years_of_experience": 8,
+    "user_image": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "kitchen.cook",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$jy37YpDZbso6$o5N3TSrY68QtU+qC0nNVeDLJyVhVJ4Bc4YIQXefj1HE=",
+    "last_login": "2023-09-29T14:14:03Z",
+    "is_superuser": false,
+    "username": "chef3",
+    "first_name": "Michael",
+    "last_name": "Jones",
+    "email": "michael.jones@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-09-29T13:58:29Z",
+    "years_of_experience": 12,
+    "user_image": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "kitchen.cook",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$WnBSS2ZGc3tc$6eU6vJXMcBZ3jwR2Lswv8eSK8ezfOe9rc0i0ffz8OGk=",
+    "last_login": "2023-09-29T14:14:03Z",
+    "is_superuser": false,
+    "username": "chef4",
+    "first_name": "Emily",
+    "last_name": "Wilson",
+    "email": "emily.wilson@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-09-29T13:58:29Z",
+    "years_of_experience": 6,
+    "user_image": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "kitchen.cook",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$lQ5DNCGQ2sFQLo4owqp4ch$OhVKjxxv7dE2xL/0PFsZja9lI5Byt8fhEhHfYKr3fU4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test_user",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-10-04T16:23:55.015Z",
+    "years_of_experience": 10,
+    "user_image": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 1,
+  "fields": {
+    "name": "Romaine Lettuce",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 2,
+  "fields": {
+    "name": "Croutons",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 3,
+  "fields": {
+    "name": "Parmesan Cheese",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 4,
+  "fields": {
+    "name": "Grilled Chicken",
+    "added_by": 2
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 5,
+  "fields": {
+    "name": "Caesar Dressing",
+    "added_by": 3
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 6,
+  "fields": {
+    "name": "Eggs",
+    "added_by": 4
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 7,
+  "fields": {
+    "name": "Butter",
+    "added_by": 2
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 8,
+  "fields": {
+    "name": "Sour Cream",
+    "added_by": 3
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 9,
+  "fields": {
+    "name": "Vanilla Extract",
+    "added_by": 4
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 10,
+  "fields": {
+    "name": "Flour",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 11,
+  "fields": {
+    "name": "Blueberries",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 12,
+  "fields": {
+    "name": "Crust",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 13,
+  "fields": {
+    "name": "Cream Cheese",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 14,
+  "fields": {
+    "name": "Cocoa Powder",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 15,
+  "fields": {
+    "name": "Milk",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 16,
+  "fields": {
+    "name": "Vegetable Oil",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 17,
+  "fields": {
+    "name": "Chocolate Chips",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 18,
+  "fields": {
+    "name": "Fettuccine Pasta",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 19,
+  "fields": {
+    "name": "Heavy Cream",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 20,
+  "fields": {
+    "name": "Garlic",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 21,
+  "fields": {
+    "name": "Nutmeg",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 22,
+  "fields": {
+    "name": "Pineapple",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 23,
+  "fields": {
+    "name": "Bananas",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 24,
+  "fields": {
+    "name": "Apples",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 25,
+  "fields": {
+    "name": "Grapes",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 26,
+  "fields": {
+    "name": "Lime Juice",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 27,
+  "fields": {
+    "name": "Maple Syrup",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 28,
+  "fields": {
+    "name": "Tomatoes",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 29,
+  "fields": {
+    "name": "Cucumber",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 30,
+  "fields": {
+    "name": "Red Onion",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 31,
+  "fields": {
+    "name": "Green Bell Pepper",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 32,
+  "fields": {
+    "name": "Kalamata Olives",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 33,
+  "fields": {
+    "name": "Feta Cheese",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 34,
+  "fields": {
+    "name": "Fresh Greek Oregano",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 35,
+  "fields": {
+    "name": "Salmon Fillets",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 36,
+  "fields": {
+    "name": "Lemon",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 37,
+  "fields": {
+    "name": "Fresh Dill",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 38,
+  "fields": {
+    "name": "Honey",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 39,
+  "fields": {
+    "name": "Olive Oil",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 40,
+  "fields": {
+    "name": "Pizza Dough",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 41,
+  "fields": {
+    "name": "Mozzarella Cheese",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 42,
+  "fields": {
+    "name": "Fresh Basil Leaves",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 43,
+  "fields": {
+    "name": "Oregano",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 44,
+  "fields": {
+    "name": "Spaghetti Pasta",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 45,
+  "fields": {
+    "name": "Pancetta",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 46,
+  "fields": {
+    "name": "Filet Mignon",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 47,
+  "fields": {
+    "name": "Paprika",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 48,
+  "fields": {
+    "name": "Sushi Rice",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 49,
+  "fields": {
+    "name": "Rice Vinegar",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 50,
+  "fields": {
+    "name": "Salmon",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 51,
+  "fields": {
+    "name": "Shrimp",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 52,
+  "fields": {
+    "name": "Sesame Seeds",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 53,
+  "fields": {
+    "name": "Wasabi",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 54,
+  "fields": {
+    "name": "Nori Sheets",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 55,
+  "fields": {
+    "name": "Ladyfingers (biscuits)",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 56,
+  "fields": {
+    "name": "Strong Brewed Espresso Coffee",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 57,
+  "fields": {
+    "name": "Coffee Liqueur",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.ingredient",
+  "pk": 58,
+  "fields": {
+    "name": "Mascarpone Cheese",
+    "added_by": 1
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 1,
+  "fields": {
+    "name": "Spaghetti Carbonara",
+    "description": "Creamy Italian pasta dish",
+    "price": "12.99",
+    "dish_type": 2,
+    "created_by": 3,
+    "image": "",
+    "ingredients": [
+      3,
+      6,
+      20,
+      44,
+      45
+    ],
+    "cooks": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 2,
+  "fields": {
+    "name": "Chocolate Cake",
+    "description": "Rich and decadent dessert",
+    "price": "8.99",
+    "dish_type": 3,
+    "created_by": 2,
+    "image": "",
+    "ingredients": [
+      7,
+      9,
+      14,
+      15,
+      16,
+      17
+    ],
+    "cooks": [
+      4
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 3,
+  "fields": {
+    "name": "Caesar Salad",
+    "description": "Classic salad with Caesar dressing",
+    "price": "7.49",
+    "dish_type": 4,
+    "created_by": 1,
+    "image": "dishes/caesar.jpg",
+    "ingredients": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "cooks": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 4,
+  "fields": {
+    "name": "Steak",
+    "description": "Juicy grilled steak",
+    "price": "19.99",
+    "dish_type": 2,
+    "created_by": 4,
+    "image": "",
+    "ingredients": [
+      20,
+      39,
+      46,
+      47
+    ],
+    "cooks": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 5,
+  "fields": {
+    "name": "Tiramisu",
+    "description": "Classic Italian dessert",
+    "price": "6.99",
+    "dish_type": 3,
+    "created_by": 1,
+    "image": "",
+    "ingredients": [
+      9,
+      19,
+      55,
+      56,
+      57,
+      58
+    ],
+    "cooks": [
+      1,
+      4
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 6,
+  "fields": {
+    "name": "Greek Salad",
+    "description": "Fresh and healthy Greek salad",
+    "price": "8.49",
+    "dish_type": 4,
+    "created_by": 1,
+    "image": "",
+    "ingredients": [
+      16,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34
+    ],
+    "cooks": [
+      2,
+      4
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 7,
+  "fields": {
+    "name": "Pizza Margherita",
+    "description": "Classic Italian pizza",
+    "price": "11.99",
+    "dish_type": 2,
+    "created_by": 1,
+    "image": "",
+    "ingredients": [
+      28,
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "cooks": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 8,
+  "fields": {
+    "name": "Cheesecake",
+    "description": "Creamy and delightful cheesecake",
+    "price": "7.99",
+    "dish_type": 3,
+    "created_by": 1,
+    "image": "",
+    "ingredients": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "cooks": [
+      2,
+      4
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 9,
+  "fields": {
+    "name": "Sushi Platter",
+    "description": "Assorted sushi delicacies",
+    "price": "22.99",
+    "dish_type": 2,
+    "created_by": 1,
+    "image": "",
+    "ingredients": [
+      29,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54
+    ],
+    "cooks": [
+      3
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 10,
+  "fields": {
+    "name": "Fettuccine Alfredo",
+    "description": "Creamy Italian pasta with fettuccine",
+    "price": "13.99",
+    "dish_type": 2,
+    "created_by": 1,
+    "image": "",
+    "ingredients": [
+      3,
+      18,
+      19,
+      20,
+      21
+    ],
+    "cooks": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 11,
+  "fields": {
+    "name": "Fruit Salad",
+    "description": "Fresh and colorful fruit salad",
+    "price": "5.99",
+    "dish_type": 4,
+    "created_by": 1,
+    "image": "",
+    "ingredients": [
+      11,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "cooks": [
+      1,
+      4
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 12,
+  "fields": {
+    "name": "Grilled Salmon",
+    "description": "Flavorful grilled salmon fillet",
+    "price": "16.99",
+    "dish_type": 2,
+    "created_by": 1,
+    "image": "",
+    "ingredients": [
+      7,
+      26,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "cooks": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 16,
+  "fields": {
+    "name": "test",
+    "description": "test",
+    "price": "10.00",
+    "dish_type": 1,
+    "created_by": 1,
+    "image": "",
+    "ingredients": [
+      1
+    ],
+    "cooks": []
+  }
+}
+]

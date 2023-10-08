@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="mt-5">
+    <div class="text-center">
+      <h1>
+        {{ cook.username }}
+        {% if cook == user %}
+          <a class="btn btn-purple" href="{% url 'kitchen:cook-update' pk=cook.id %}">Update user image</a>
+        {% endif %}
+      </h1>
+    </div>
+    <hr>
+    <div class="container-fluid d-flex ">
+      <div style="width: 400px; height: 400px" class="border-purple">
+        <img
+          {% if cook.user_image %}
+            src="{{ cook.user_image.url }}"
+          {% else %}
+            src="/static/images/default_user_image.png"
+          {% endif %}
+          style="width: 100%; height: 100%"
+          alt="{{ cook.username }} image"
+        >
+      </div>
+      <div class="container d-flex flex-column gap-3">
+        <p><strong>Full name:</strong> {{ cook.first_name }} {{ cook.last_name }}</p>
+        <p><strong>Email:</strong> {{ cook.email }}</p>
+        <p><strong>Years of experience:</strong> {{ cook.years_of_experience }}</p>
+        <hr>
+        <div class="container d-flex flex-row">
+          <div class="col-3">
+          {% if cook.first_name %}
+            <p><strong>Dishes that {{ cook.first_name }} cooks:</strong></p>
+          {% else %}
+            <p><strong>Dishes that {{ cook.username }} cooks:</strong></p>
+          {% endif %}
+            <ul class="list-group">
+              {% for dish in cook.dishes.all %}
+                <li class="list-group-item">
+                  <a style="text-decoration: None; color: var(--ky-btn-color-purple)" href="{% url 'kitchen:cook-detail' pk=cook.id %}">
+                    {{ dish.name }}:
+                  </a>
+                  {{ dish.price }} $
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="ms-5 col-3 pe-5">
+          {% if cook.first_name %}
+            <p><strong>Dishes added by {{ cook.first_name }}:</strong></p>
+          {% else %}
+            <p><strong>Dishes added by {{ cook.username }}:</strong></p>
+          {% endif %}
+              {% if created_dishes %}
+                <ul class="list-group">
+                  {% for dish in cook.created_dishes.all %}
+                      <li class="list-group-item">
+                        <a style="text-decoration: None; color: var(--ky-btn-color-purple)" href="{% url 'kitchen:cook-detail' pk=cook.id %}">
+                          {{ dish.name }}:
+                        </a>
+                        {{ dish.price }} $
+                      </li>
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <p style="font-size: 20px">There are no dishes added by {{ cook.first_name }}</p>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
