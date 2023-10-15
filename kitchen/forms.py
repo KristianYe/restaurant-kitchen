@@ -17,9 +17,7 @@ class DishForm(forms.ModelForm):
     dish_type = forms.ModelChoiceField(
         queryset=DishType.objects.all(), widget=forms.Select
     )
-    image = forms.ImageField(
-        required=False
-    )
+    image = forms.ImageField(required=False)
 
     class Meta:
         model = Dish

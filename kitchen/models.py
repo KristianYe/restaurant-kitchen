@@ -76,9 +76,10 @@ class Dish(models.Model):
     image = models.ImageField(
         upload_to="dishes",
         null=True,
+        blank=True,
         validators=[
             FileExtensionValidator(
-                allowed_extensions=['jpg', 'jpeg', 'png', 'gif']
+                allowed_extensions=["jpg", "jpeg", "png", "gif"]
             )
         ]
     )
