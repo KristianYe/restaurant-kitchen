@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="mt-5">
+    <div class="text-center">
+      <h1>
+        Ingredient List
+        <a class="btn btn-purple" href="{% url 'kitchen:ingredient-create' %}">Add new ingredient</a>
+      </h1>
+    </div>
+    <div class="container d-flex justify-content-center">
+      {% include "includes/search_form.html" %}
+    </div>
+    <hr>
+    <div class="container d-flex justify-content-center align-items-center mt-3">
+      <div class="col-md-6">
+        <div class="row border rounded-5 p-3 bg-white shadow box-area">
+          <table class="table table-light bg-purple mt-4">
+          <thead>
+            <tr class="table-light">
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for ingredient in ingredient_list %}
+            <tr>
+              <th scope="row">{{ ingredient.id }}</th>
+              <td class="table-light">
+                <a style="text-decoration: None; color: var(--ky-btn-color-purple)"
+                   href="{% url 'kitchen:ingredient-detail' pk=ingredient.id %}">
+                  {{ ingredient.name }}
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pagination %}
+  {% include "includes/pagination.html" %}
+{% endblock %}

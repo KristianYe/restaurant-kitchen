@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="mt-5">
+    <div class="text-center">
+      <h1>
+        {{ dish_type }}
+      </h1>
+      {% if dish_type.created_by == user %}
+      	<div class="mt-3">
+          <a class="btn btn-purple" href="{% url 'kitchen:dish-type-update' pk=dish_type.id %}">Update dish type</a>
+          <a class="btn btn-danger" href="{% url 'kitchen:dish-type-delete' pk=dish_type.id %}">Delete dish type</a>
+        </div>
+      {% endif %}
+    </div>
+    <hr>
+    <div class="container d-flex justify-content-center align-items-center mt-3">
+      <div class="col-md-6">
+        <div class="row border rounded-5 p-3 bg-white shadow box-area">
+          {% if created_dishes %}
+          <h4 class="text-center">All dishes in this category:</h4>
+            <table class="table table-light bg-purple mt-4">
+              <thead>
+                <tr class="table-light">
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for dish in dish_type.dishes.all %}
+                <tr>
+                  <th scope="row">{{ dish.id }}</th>
+                  <td class="table-light">
+                    <a style="text-decoration: None; color: var(--ky-btn-color-purple)" href="{% url 'kitchen:dish-detail' pk=dish.id %}">{{ dish.name }}</a>
+                  </td>
+                  <td class="table-light">{{ dish.price }} $</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <p class="text-center">There are no dishes added to this category yet.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

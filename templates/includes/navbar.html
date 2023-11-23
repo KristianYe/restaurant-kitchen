@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-purple border-purple shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: white;
+    font-family: 'Onest', sans-serif; font-size: 150%; font-weight: bold"
+       href="{% url 'kitchen:index' %}">
+      <i class="fa fa-cutlery" aria-hidden="true"></i>
+      Kitchen service
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-5">
+        <li>
+          <a class="nav-link btn btn-purple ms-4 nav-item-custom" href="{% url 'kitchen:dish-type-list' %}">Dish Categories</a>
+        </li>
+        <li>
+          <a class="nav-link btn btn-purple ms-4 nav-item-custom" href="{% url 'kitchen:dish-list' %}">Dishes</a>
+        </li>
+        <li>
+          <a class="nav-link btn btn-purple ms-4 nav-item-custom" href="{% url 'kitchen:ingredient-list' %}">Ingredients</a>
+        </li>
+        <li>
+          <a class="nav-link btn btn-purple ms-4 nav-item-custom" href="{% url 'kitchen:cook-list' %}">Cooks</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li>
+           <a class="nav-link btn btn-purple me-4 nav-item-custom" href="{{ user.get_absolute_url }}">{{ user.get_username }}</a>
+        </li>
+        <li>
+          <a class="nav-link btn btn-purple nav-item-custom" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

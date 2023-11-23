@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="mt-5">
+    <div class="text-center">
+      <h1>
+        Cook list
+      </h1>
+    </div>
+    <div class="container d-flex justify-content-center">
+      <br>
+      {% include "includes/search_form.html" %}
+    </div>
+    <hr>
+    <div class="container-fluid d-flex justify-content-sm-around custom-cont">
+      {% for cook in cook_list %}
+      <div class="card" style="width: 18rem;">
+        <img
+            {% if cook.user_image %}
+              src="{{ cook.user_image.url }}"
+            {% else %}
+              src="/static/images/default_user_image.png"
+            {% endif %}
+            class="card-img-top"
+            style="width: 286px; height:286px"
+            alt="user image"
+        >
+        <div class="card-body">
+          <h5 class="card-title">
+            {% if cook.first_name %}
+              {{ cook.first_name }} {{ cook.last_name }}
+            {% else %}
+              {{ cook.username }}
+            {% endif %}
+          </h5>
+          <div class="mt-1">
+            <a class="btn btn-lg btn-purple mt-2" href="{% url 'kitchen:cook-detail' pk=cook.id %}">
+              Details
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
