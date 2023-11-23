@@ -12,9 +12,10 @@
       {% include "includes/search_form.html" %}
     </div>
     <hr>
-    <div class="ms-3">
-      <div class="col-4">
-        <table class="table table-light bg-purple mt-4">
+    <div class="container d-flex justify-content-center align-items-center mt-3">
+      <div class="col-md-6">
+        <div class="row border rounded-5 p-3 bg-white shadow box-area">
+          <table class="table table-light bg-purple mt-4">
           <thead>
             <tr class="table-light">
               <th scope="col">Id</th>
@@ -35,13 +36,12 @@
           {% endfor %}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </div>
 {% endblock %}
 
 {% block pagination %}
-  <div class="col-4">
-    {% include "includes/pagination.html" %}
-  </div>
+  {% include "includes/pagination.html" %}
 {% endblock %}
